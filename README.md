@@ -5,7 +5,7 @@
 
 ## Why? 
 
-If you use Blue Green Deployment with Elastic Beanstalk, know that there is no fixed id for the environments. Through the Swap Url's you make the switch the canonical name of the environments. 
+If you use ***Blue Green Deployment*** with [Elastic Beanstalk](https://aws.amazon.com/elasticbeanstalk/), know that there is no fixed id for the environments. Through the Swap Url's you make the switch the canonical name of the environments. 
 
 So you can assume that the only fixed reference is the canonical name of your environment. However, the SDK of AWS does not Provide an API where you find in this way. And this package is for it :)
 
