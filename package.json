@@ -1,0 +1,40 @@
+{
+  "name": "aws-ebc",
+  "version": "0.1.0",
+  "description": "Get the id of environment on Elastic Beanstalk by their canonical name.",
+  "license": "MIT",
+  "author": {
+    "name": "Cauê Alves"
+  },
+  "main": "index.js",
+  "scripts": {
+    "test": "ava test.js",
+    "prepublish": "npm run test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ceasbz/aws-ebc.git"
+  },
+  "keywords": [
+    "amazon",
+    "aws",
+    "eb",
+    "elastic",
+    "beanstalk",
+    "elasticbeanstalk",
+    "get",
+    "environment",
+    "id",
+    "cname"
+  ],
+  "devDependencies": {
+    "ava": "^0.15.2"
+  },
+  "bugs": {
+    "url": "https://github.com/ceasbz/aws-ebc/issues"
+  },
+  "homepage": "https://github.com/ceasbz/aws-ebc#readme",
+  "dependencies": {
+    "aws-sdk": "^2.5.3"
+  }
+}
