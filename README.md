@@ -5,7 +5,9 @@
 
 ## Why? 
 
-If you use Blue Green Deployment with Elastic Beanstalk, know that there is no fixed environment id for production environment. Through the Swap Url's you make the switch the CNAME of the environments. So, you can assume that the production environment will always have a fixed CNAME. However, the SDK of AWS does not provide an API where you find the id of the environment by CNAME. And this package is for it :)
+If you use Blue Green Deployment with Elastic Beanstalk, know that there is no fixed id for the environments. Through the Swap Url's you make the switch the canonical name of the environments. 
+
+So you can assume that the only fixed reference is the canonical name of your environment. However, the SDK of AWS does not Provide an API where you find in this way. And this package is for it :)
 
 ## Install
 
