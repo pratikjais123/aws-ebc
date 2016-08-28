@@ -70,4 +70,4 @@ Secret Access Key offered by AWS Identity and Access Management (IAM)
 
 ## License
 
-MIT © [Cauê Alves](./README.md)
+MIT © [Cauê Alves](./LICENSE)
