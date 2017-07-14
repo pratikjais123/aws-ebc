@@ -56,7 +56,7 @@ module.exports = (canonicalName, applicationName, credentials) => {
             data.Environments.forEach(e => {
                 if (canonicalName === e.CNAME) {
                     environment = {
-                        id: e.environmentId,
+                        id: e.EnvironmentId,
                         name: e.EnvironmentName,
                         health: e.Health,
                         status: e.Status
