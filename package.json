@@ -1,6 +1,6 @@
 {
   "name": "aws-ebc",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "description": "Get the id of environment on Elastic Beanstalk by their canonical name.",
   "license": "MIT",
   "author": {
@@ -19,14 +19,9 @@
     "amazon",
     "aws",
     "eb",
-    "ebc",
-    "elastic",
     "beanstalk",
     "elasticbeanstalk",
-    "get",
-    "environment",
-    "id",
-    "cname"
+    "describe"
   ],
   "devDependencies": {
     "ava": "^0.15.2"

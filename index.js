@@ -46,17 +46,29 @@ module.exports = (canonicalName, applicationName, credentials) => {
                 return reject(`No environments are associated with the following application: ${applicationName}`);
             }
 
-            let environmentId;
+            let environment = {
+                id: false,
+                name: false,
+                health: false,
+                status: false
+            };
 
             data.Environments.forEach(e => {
-                if (canonicalName === e.CNAME) environmentId = e.EnvironmentId
+                if (canonicalName === e.CNAME) {
+                    environment = {
+                        id: e.environmentId,
+                        name: e.EnvironmentName,
+                        health: Health,
+                        status: Status
+                    };
+                };
             });
 
-            if (!environmentId) {
-                return reject(`No environments are associated with the following canonical name: ${canonicalName}`);
+            if (!environment.id) {
+                return reject(`No environment are associated with the following canonical name: ${canonicalName}`);
             }
 
-            return resolve(environmentId);
+            return resolve(environment);
         });
     });
 };
