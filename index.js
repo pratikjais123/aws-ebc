@@ -58,8 +58,8 @@ module.exports = (canonicalName, applicationName, credentials) => {
                     environment = {
                         id: e.environmentId,
                         name: e.EnvironmentName,
-                        health: Health,
-                        status: Status
+                        health: e.Health,
+                        status: e.Status
                     };
                 };
             });
