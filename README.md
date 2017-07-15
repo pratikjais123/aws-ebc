@@ -31,7 +31,10 @@ const credentials = {
 };
 
 awsEbc(url, appName, credentials).then(environment => {
-    console.log(environment.name) // app
+    console.log(environment.id) // aq14fG1a-1
+    console.log(environment.name) // example
+    console.log(environment.health) // Green
+    console.log(environment.status) // Ready
 });
 ```
 
