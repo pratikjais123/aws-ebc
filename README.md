@@ -13,7 +13,7 @@ And this package solve this problem.
 ## Install
 
 ```bash
-npm i --save aws-ebc
+yarn add aws-ebc
 ```
 
 ## Usage

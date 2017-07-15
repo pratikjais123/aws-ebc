@@ -3,18 +3,13 @@
   "version": "1.2.1",
   "description": "Describe details of an environment at Elastic Beanstalk by their URL",
   "license": "MIT",
-  "author": {
-    "name": "Cauê Alves"
-  },
+  "author": "Cauê Alves",
   "main": "index.js",
   "scripts": {
     "test": "ava test.js",
     "prepublish": "npm run test"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/ceasbz/aws-ebc.git"
-  },
+  "repository": "git+https://github.com/ceasbz/aws-ebc.git",
   "keywords": [
     "amazon",
     "aws",
