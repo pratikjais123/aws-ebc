@@ -1,13 +1,14 @@
 # aws-ebc [![Build Status](https://travis-ci.org/ceasbz/aws-ebc.svg?branch=master)](https://travis-ci.org/ceasbz/aws-ebc) [![Dependency Status](https://david-dm.org/ceasbz/aws-ebc.svg?style=flat-square)](https://david-dm.org/ceasbz/aws-ebc) [![Npm Package Version](https://img.shields.io/npm/v/aws-ebc.svg?style=flat-square)](https://www.npmjs.org/package/aws-ebc)
 
-> Get the id of environment on Elastic Beanstalk by their canonical name.
-
+> Describe details of an environment at Elastic Beanstalk by their URL
 
 ## Why? 
 
-If you use ***Blue Green Deployment*** with [Elastic Beanstalk](https://aws.amazon.com/elasticbeanstalk/), know that there is no fixed id for the environments. Through the Swap Url's you make the switch the canonical name of the environments. 
+If you use ***Blue Green Deployment*** with [Elastic Beanstalk](https://aws.amazon.com/elasticbeanstalk/), know that there is no fixed id of environments. Through the Swap Url's you make the switch the URL of environments.
 
-So you can assume that the only fixed reference is the canonical name of your environment. However, the SDK of AWS does not Provide an API where you find in this way. And this package is for it :)
+So you can assume that the only fixed reference is the URL of your environment. However, the SDK of AWS does not Provide an API where you find in this way. 
+
+And this package solve this problem.
 
 ## Install
 
@@ -20,8 +21,8 @@ npm i --save aws-ebc
 ```js
 const awsEbc = require('aws-ebc');
 
-const canonicalName = 'my-application.us-east-1.elasticbeanstalk.com';
-const applicationName = 'my-application';
+const url = 'my-application.us-east-1.elasticbeanstalk.com';
+const appName = 'my-application';
 
 const credentials = {
     region: 'us-east-1',
@@ -29,22 +30,24 @@ const credentials = {
     secretAccessKey: 'SECRETACCESSKEY'
 };
 
-awsEbc(canonicalName, applicationName, credentials).then(environmentId => console.log(environmentId));
+awsEbc(url, appName, credentials).then(environment => {
+    console.log(environment.name) // app
+});
 ```
 
 ## API
 
-### awsEbc(canonicalName, applicationName, credentials)
+### awsEbc(url, appName, credentials)
 
-Return a promise with the id of environment.
+Return an object with `id`, `name`, `health` and `status` of the environment.
 
-#### canonicalName
+#### url
 
 Type: `string`
 
-Canonical name of the environment you are looking for.
+URL of the environment you're searching.
 
-#### applicationName
+#### appName
 
 Type: `string`
 
@@ -70,4 +73,4 @@ Secret Access Key offered by AWS Identity and Access Management (IAM)
 
 ## License
 
-MIT © [Cauê Alves](./LICENSE)
+MIT © [Cauê Alves](https://twitter.com/ceasbz)

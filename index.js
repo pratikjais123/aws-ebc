@@ -1,12 +1,12 @@
 'use strict';
 
-module.exports = (canonicalName, applicationName, credentials) => {
-    if (typeof canonicalName !== 'string') {
-        throw new TypeError(`Expected a string but got ${typeof canonicalName}`);
+module.exports = (url, appName, credentials) => {
+    if (typeof url !== 'string') {
+        throw new TypeError(`Expected a string but got ${typeof url}`);
     }
 
-    if (typeof applicationName !== 'string') {
-        throw new TypeError(`Expected a string but got ${typeof applicationName}`);
+    if (typeof appName !== 'string') {
+        throw new TypeError(`Expected a string but got ${typeof appName}`);
     }
 
     if (typeof credentials !== 'object') {
@@ -36,14 +36,14 @@ module.exports = (canonicalName, applicationName, credentials) => {
         });
 
         elasticbeanstalk.describeEnvironments({
-            ApplicationName: applicationName
+            ApplicationName: appName
         }, (error, data) => {
             if (error && (error.code == 'InvalidClientTokenId' || error.code == 'SignatureDoesNotMatch')) {
                 return reject('Please check your credentials.');
             }
 
             if (!data.Environments.length) {
-                return reject(`No environments are associated with the following application: ${applicationName}`);
+                return reject(`No environments are associated with the following application: ${appName}`);
             }
 
             let environment = {
@@ -54,7 +54,7 @@ module.exports = (canonicalName, applicationName, credentials) => {
             };
 
             data.Environments.forEach(e => {
-                if (canonicalName === e.CNAME) {
+                if (url === e.CNAME) {
                     environment = {
                         id: e.EnvironmentId,
                         name: e.EnvironmentName,
@@ -65,7 +65,7 @@ module.exports = (canonicalName, applicationName, credentials) => {
             });
 
             if (!environment.id) {
-                return reject(`No environment are associated with the following canonical name: ${canonicalName}`);
+                return reject(`No environment are associated with the following url: ${url}`);
             }
 
             return resolve(environment);
